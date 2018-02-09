@@ -58,8 +58,4 @@ alias format='clang-format -i'
 alias git praise='git blame'
 alias hack='hollywood'
 
-#TODO(Nathan) create vim fold to hide the following aliases
-# {{{
-alias ccd='command cd'
-alias cd='xdg-open && ccd' #TODO(Nathan) url for rick-roll prank
-# }}}
+alias xkcd='xdg-open https://xkcd.com/' #open up latest xkcd comic
