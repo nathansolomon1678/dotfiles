@@ -1,4 +1,4 @@
-# Custom-terminal-settings
+# Customize your terminal settings!
 Original zsh aliases and unoriginal vim settings
 
 ## How to set up this stuff
