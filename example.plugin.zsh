@@ -40,8 +40,8 @@ alias stp='~/robot-code/scripts/tests.py --no-vision'
 alias cpplint='~/robot-code/scripts/cpplint/run-cpplint.sh'
 
 alias atom='echo "Thank you for choosing neovim over atom. Have a nice day!"; nvim'
-alias vim='echo Thank you for choosing neovim over vim. Have a nice day! && nvim'
-alias vi='echo Thank you for choosing neovim over vi. Have a nice day! && nvim'
+alias vim='echo "Thank you for choosing neovim over vim. Have a nice day!"; nvim'
+alias vi='echo "Thank you for choosing neovim over vi. Have a nice day!"; nvim'
 alias v='nvim'
 
 alias ct='command cat'
@@ -50,7 +50,7 @@ alias cat='lolcat'
 alias please='sudo'
 alias plz='please'
 alias get='plz apt-get install'
-alias up='plz apt-get update && plz apt-get upgrade'
+alias up='plz apt-get update; plz apt-get upgrade'
 
 #miscellaneous
 alias fun='command cat /dev/urandom'

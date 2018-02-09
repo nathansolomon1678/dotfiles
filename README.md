@@ -1,5 +1,5 @@
 # Custom-terminal-settings
-Vim settings and zsh aliases
+Original zsh aliases and unoriginal vim settings
 
 ## How to set up this stuff
 * Install neovim and zsh
