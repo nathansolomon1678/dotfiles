@@ -5,13 +5,13 @@ alias bzr='bazel run'
 alias bzb='bazel build'
 alias bzt='bazel test'
 
-function deploy() {
+function deploy() { # example: deploy c2018 9678
   bazel run //"$1":deploy --cpu=roborio -- --team="$2"
 }
-function build-year() {
+function build-year() { # example: build-year o2019
   bazel build //"$1":"$1" --cpu=roborio
 }
-function robot() {
+function robot() { # example: deploy c2019
   ssh admin@roborio-"$1"-frc.local
 }
 

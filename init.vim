@@ -29,6 +29,8 @@ set wildmenu
 set wildmode=longest:full,full
 
 set ignorecase " ignore case when searching
+set incsearch " search as characters are entered
+set hlsearch " highlight matches while searching
 set magic
 
 " Setup dein  ---------------------------------------------------------------{{{
