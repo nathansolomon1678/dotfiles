@@ -58,4 +58,17 @@ alias format='clang-format -i'
 alias git praise='git blame'
 alias hack='hollywood'
 
+google() {
+    search=""
+    echo "Googling: $@"
+    for term in $@; do
+        search="$search%20$term"
+    done
+    xdg-open "http://www.google.com/search?q=$search"
+}
+alias 'ggl=google'
 alias xkcd='xdg-open https://xkcd.com/' #open up latest xkcd comic
+alias slack='xdg-open https://citruscircuits1678.slack.com/'
+alias drive='xdg-open https://drive.google.com/drive/team-drives'
+alias ghub='xdg-open https://github.com/frc1678/robot-code'
+alias stuff='slack; drive; ghub'
