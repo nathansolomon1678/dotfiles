@@ -11,7 +11,7 @@ function deploy() { # example: deploy c2018 9678
 function build-year() { # example: build-year o2019
   bazel build //"$1":"$1" --cpu=roborio
 }
-function robot() { # example: deploy c2019
+function robot() { # example: deploy 8678
   ssh admin@roborio-"$1"-frc.local
 }
 
