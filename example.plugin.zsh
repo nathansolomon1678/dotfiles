@@ -15,7 +15,7 @@ function robot() { # example: deploy c2019
   ssh admin@roborio-"$1"-frc.local
 }
 
-alias stp='~/robot-code/scripts/tests.py --no-vision'
+alias stp='~/robot-code/scripts/tests.sh'
 alias lint='~/robot-code/scripts/cpplint/run-cpplint.sh'
 
 alias atom='echo "Thank you for choosing neovim over atom. Have a nice day!"; nvim'
