@@ -8,12 +8,15 @@ alias bzt='bazel test'
 function deploy() { # example: deploy c2018 9678
   bazel run //"$1":deploy --cpu=roborio -- --team="$2"
 }
+alias dply='deploy'
 function build-year() { # example: build-year o2019
   bazel build //"$1":"$1" --cpu=roborio
 }
+alias bld-yr='build-year'
 function robot() { # example: deploy 8678
   ssh admin@roborio-"$1"-frc.local
 }
+alias rbt='robot'
 
 alias tests='~/robot-code/scripts/tests.sh'
 alias lint='~/robot-code/scripts/cpplint/run-cpplint.sh'
@@ -23,8 +26,7 @@ alias vim='echo "Thank you for choosing neovim over vim. Have a nice day!"; nvim
 alias vi='echo "Thank you for choosing neovim over vi. Have a nice day!"; nvim'
 alias v='nvim'
 
-alias ct='command cat'
-alias cat='lolcat'
+alias ct='lolcat'
 
 alias please='sudo'
 alias plz='please'
