@@ -49,12 +49,21 @@ alias ghub='xdg-open https://github.com/frc1678/robot-code'
 alias stuff='slack; drive; ghub'
 
 #more git aliases
-alias gist='echo "BRANCHES:";
+alias gist='echo "BRANCHES:" | lolcat;
+            echo "__________________________________________________" | lolcat;
             gb -vv;
-            echo "\nREMOTES:";
+
+            echo "\nREMOTES:" | lolcat;
+            echo "__________________________________________________" | lolcat;
             gr -vv;
-            echo "\nSTATUS:";
-            gst'
+
+            echo "\nSTATUS:" | lolcat;
+            echo "__________________________________________________" | lolcat;
+            gst;
+
+            echo "\nFILES & DIRECTORIES:" | lolcat;
+            echo "__________________________________________________" | lolcat;
+            ls'
 
 #miscellaneous
 alias fun='command cat /dev/urandom'
