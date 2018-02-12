@@ -48,6 +48,14 @@ alias drive='xdg-open https://drive.google.com/drive/team-drives'
 alias ghub='xdg-open https://github.com/frc1678/robot-code'
 alias stuff='slack; drive; ghub'
 
+#more git aliases
+alias gist='echo "BRANCHES:";
+            gb -vv;
+            echo "\nREMOTES:";
+            gr -vv;
+            echo "\nSTATUS:";
+            gst'
+
 #miscellaneous
 alias fun='command cat /dev/urandom'
 alias format='clang-format -i'
