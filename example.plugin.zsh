@@ -41,7 +41,7 @@ google() {
   done
   xdg-open "http://www.google.com/search?q=$search"
 }
-alias 'ggl=google'
+alias ggl='google'
 alias xkcd='xdg-open https://xkcd.com/' #open up latest xkcd comic
 alias slack='xdg-open https://citruscircuits1678.slack.com/'
 alias drive='xdg-open https://drive.google.com/drive/team-drives'
