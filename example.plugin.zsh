@@ -52,13 +52,13 @@ alias stuff='slack; drive; ghub'
 alias gist='echo "BRANCHES:\n__________________________________________________" | lolcat;
             gb -vv;
 
-            echo "\nREMOTES:\n__________________________________________________" | lolcat;
+            echo "\n\nREMOTES:\n__________________________________________________" | lolcat;
             gr -vv;
 
-            echo "\nSTATUS:\n__________________________________________________" | lolcat;
+            echo "\n\nSTATUS:\n__________________________________________________" | lolcat;
             gst;
 
-            echo "\nFILES & DIRECTORIES:\n__________________________________________________" | lolcat;
+            echo "\n\nFILES & DIRECTORIES:\n__________________________________________________" | lolcat;
             ls'
 
 #miscellaneous
