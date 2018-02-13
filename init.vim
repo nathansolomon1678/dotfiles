@@ -11,10 +11,11 @@
 set background=dark
 syntax on
 
-" comment out all of the following colorschemes except the one you prefer
-source ~/.config/nvim/colors/guru.vim
-source ~/.config/nvim/colors/cobalt.vim
+" move your favorite colorscheme to the end of this list
+source ~/.config/nvim/colors/cobalt.vim " https://github.com/gkjgh/cobalt
+source ~/.config/nvim/colors/eldar.vim " https://github.com/agude/vim-eldar
 colo elflord
+source ~/.config/nvim/colors/landscape.vim " https://github.com/itchyny/landscape.vim
 
 " number lines relative to current position
 set relativenumber!
@@ -29,8 +30,6 @@ set wildmenu
 set wildmode=longest:full,full
 
 set ignorecase " ignore case when searching
-set incsearch " search as characters are entered
-set hlsearch " highlight matches while searching
 set magic
 
 " Setup dein  ---------------------------------------------------------------{{{
