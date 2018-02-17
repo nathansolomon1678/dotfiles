@@ -61,6 +61,17 @@ alias gist='echo "BRANCHES:\n__________________________________________________"
             echo "\n\nFILES & DIRECTORIES:\n__________________________________________________" | lolcat;
             ls'
 
+function bible() {
+  url="https://www.openbible.info/topics/"
+  echo "What does the bible say about $@?"
+  for word in $@; do # append each parameter as a word to the url, separated by underscores
+    url=$url"$word"
+    url=$url"_"
+  done
+  url=${url%?} # remove last underscore
+  xdg-open "$url"
+}
+
 #miscellaneous
 alias fun='command cat /dev/urandom'
 alias format='clang-format -i'
