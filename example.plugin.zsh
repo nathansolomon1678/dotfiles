@@ -5,18 +5,15 @@ alias bzr='bazel run'
 alias bzb='bazel build'
 alias bzt='bazel test'
 
-function deploy() { # example: deploy c2018 9678
-  bazel run //"$1":deploy --cpu=roborio -- --team="$2"
+function deploy() {
+  bazel run //"$1":deploy --cpu=roborio -c opt -- --team="$2"
 }
-alias dply='deploy'
-function build-year() { # example: build-year o2019
-  bazel build //"$1":"$1" --cpu=roborio
+function build-year() {
+  bazel build //"$1":all -c opt --cpu=roborio
 }
-alias bld-yr='build-year'
-function robot() { # example: deploy 8678
+function robot() {
   ssh admin@roborio-"$1"-frc.local
 }
-alias rbt='robot'
 
 alias tests='~/robot-code/scripts/tests.sh'
 alias lint='~/robot-code/scripts/cpplint/run-cpplint.sh'
@@ -39,7 +36,7 @@ google() {
   for term in $@; do
     search="$search%20$term"
   done
-  xdg-open "http://www.google.com/search?q=$search"
+  lynx "http://www.google.com/search?q=$search"
 }
 alias ggl='google'
 alias xkcd='xdg-open https://xkcd.com/' #open up latest xkcd comic
@@ -69,7 +66,7 @@ function bible() {
     url=$url"_"
   done
   url=${url%?} # remove last underscore
-  xdg-open "$url"
+  lynx "$url"
 }
 
 #miscellaneous
