@@ -74,5 +74,5 @@ alias fun='command cat /dev/urandom'
 alias format='clang-format -i'
 alias praise='git blame'
 alias hack='hollywood'
-alias rick-roll='xdg-open https://www.youtube.com/watch?v=dQw4w9WgXcQ' # to make a great prank, make an alias cd=`rick-roll`
+alias rick-roll='xdg-open https://www.youtube.com/watch?v=dQw4w9WgXcQ' # to make a great prank, make an alias cd='rick-roll'
 alias cl='clear'
