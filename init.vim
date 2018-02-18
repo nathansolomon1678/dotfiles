@@ -1,12 +1,3 @@
-"|  \/  (_) |                        (_)
-"| .  . |_| | _____  ___   _ ____   ___ _ __ ___  _ __ ___
-"| |\/| | | |/ / _ \/ __| | '_ \ \ / / | '_ ` _ \| '__/ __|
-"| |  | | |   <  __/\__ \ | | | \ V /| | | | | | | | | (__
-"\_|  |_/_|_|\_\___||___/ |_| |_|\_/ |_|_| |_| |_|_|  \___|
-"
-" Author: Mike Hartington
-" repo  : https://github.com/mhartington/dotfiles/
-
 " customizing settings
 set background=dark
 syntax on
@@ -17,19 +8,20 @@ source ~/.config/nvim/colors/eldar.vim " https://github.com/agude/vim-eldar
 colo elflord
 source ~/.config/nvim/colors/landscape.vim " https://github.com/itchyny/landscape.vim
 
-" number lines relative to current position
-set relativenumber!
-
 " whitespace
 set tabstop=2|set shiftwidth=2|set expandtab
-" in python files, indent with 4 spaces
+
+" in python and BUILD files, indent with 4 spaces
 autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
+if (expand('%:t:r')=='BUILD')
+  set tabstop=4|set shiftwidth=4|set expandtab
+endif
 
 " autocomplete settings
 set wildmenu
 set wildmode=longest:full,full
 
-set ignorecase " ignore case when searching
+set number
 set magic
 
 " Setup dein  ---------------------------------------------------------------{{{
@@ -146,9 +138,6 @@ set magic
   set noshowmode
   set noswapfile
   filetype on
-  set number!
-  set numberwidth=1
-  set tabstop=2 shiftwidth=2 expandtab
   set conceallevel=0
   set virtualedit=
   set wildmenu
@@ -248,7 +237,7 @@ set magic
     let url = 'http://dummyimage.com/' . a:size . '/000000/555555'
     let [width,height] = split(a:size, 'x')
     execute "normal a<img src=\"".url."\" width=\"".width."\" height=\"".height."\" />"
-    endfunction
+  endfunction
   command! -nargs=1 PlaceholderImgTag call s:PlaceholderImgTag(<f-args>)
 
 "}}}"
@@ -366,28 +355,6 @@ set magic
 
 " }}}
 
-" Fold, gets it's own section  ----------------------------------------------{{{
-
-  function! MyFoldText() " {{{
-      let line = getline(v:foldstart)
-      let nucolwidth = &fdc + &number * &numberwidth
-      let windowwidth = winwidth(0) - nucolwidth - 3
-      let foldedlinecount = v:foldend - v:foldstart
-
-      " expand tabs into spaces
-      let onetab = strpart('          ', 0, &tabstop)
-      let line = substitute(line, '\t', onetab, 'g')
-
-      let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
-      " let fillcharcount = windowwidth - len(line) - len(foldedlinecount) - len('lines')
-      " let fillcharcount = windowwidth - len(line) - len(foldedlinecount) - len('lines   ')
-      let fillcharcount = windowwidth - len(line)
-      " return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . ' Lines'
-      return line . '…' . repeat(" ",fillcharcount)
-  endfunction " }}}
-
-  set foldtext=MyFoldText()
-
   autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
   autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
 
@@ -413,8 +380,6 @@ set magic
   autocmd FileType html setl foldexpr=HTMLFolds()
 
   autocmd FileType javascript,typescript,json setl foldmethod=syntax
-
-" }}}
 
 " Git -----------------------------------------------------------------------{{{
 
@@ -454,16 +419,6 @@ set magic
   augroup vfinit
   autocmd FileType vimfiler call s:vimfilerinit()
   augroup END
-  function! s:vimfilerinit()
-      set nonumber
-      set norelativenumber
-      nmap <silent><buffer><expr> <CR> vimfiler#smart_cursor_map(
-            \ "\<Plug>(vimfiler_expand_tree)",
-            \ "\<Plug>(vimfiler_edit_file)"
-            \)
-      nmap <silent> m :call NerdUnite()<cr>
-      nmap <silent> r <Plug>(vimfiler_redraw_screen)
-  endf
   " let g:vimfiler_ignore_pattern = '^\%(\.git\|\.DS_Store\)$'
   let g:webdevicons_enable_vimfiler = 0
   let g:vimfiler_no_default_key_mappings=1
@@ -573,11 +528,6 @@ set magic
   call deoplete#custom#set('typescript',  'rank', 630)
   " let g:deoplete#omni_patterns = {}
   " let g:deoplete#omni_patterns.html = ''
-  function! Preview_func()
-    if &pvw
-      setlocal nonumber norelativenumber
-     endif
-  endfunction
   autocmd WinEnter * call Preview_func()
   let g:deoplete#ignore_sources = {}
   let g:deoplete#ignore_sources._ = ['around']
