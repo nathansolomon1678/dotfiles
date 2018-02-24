@@ -190,14 +190,6 @@ set spell
   smap <C-k>     <Plug>(neosnippet_expand_or_jump)
   xmap <C-k>     <Plug>(neosnippet_expand_target)
 
-" SuperTab like snippets behavior.
-  imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  \ "\<Plug>(neosnippet_expand_or_jump)"
-  \: pumvisible() ? "\<C-n>" : "\<TAB>"
-  smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  \ "\<Plug>(neosnippet_expand_or_jump)"
-  \: "\<TAB>"
-
 "}}}
 
 " Emmet customization -------------------------------------------------------{{{
@@ -299,13 +291,5 @@ set spell
         \ '8': '8 ',
         \ '9': '9 ',
         \}
-
-"}}}
-
-" Linting -------------------------------------------------------------------{{{
-
-  autocmd! BufWritePost * Neomake
-  let g:neomake_warning_sign = {'text': '•'}
-  let g:neomake_error_sign = {'text': '•'}
 
 "}}}
