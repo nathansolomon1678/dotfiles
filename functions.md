@@ -11,7 +11,7 @@
 `robot`: ssh into a robot (1 parameter)
 
   * Example: `robot 8678`
-  * This runs `ssh admin@roborio-"$1"-frc.local`
+  * This runs `ssh admin@roborio-8678-frc.local`
 
 `google` or `ggl`: does a google search in lynx
 
