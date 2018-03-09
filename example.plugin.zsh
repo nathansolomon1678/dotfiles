@@ -15,8 +15,8 @@ function robot() {
   ssh admin@roborio-"$1"-frc.local
 }
 
-alias tests='~/robot-code/scripts/tests.sh'
-alias lint='~/robot-code/scripts/cpplint/run-cpplint.sh'
+alias tests='cd ~/robot-code; sh ./robot-code/scripts/tests.sh'
+alias lint='cd ~/robot-code; sh ./robot-code/scripts/cpplint/run-cpplint.sh'
 
 alias atom='echo "Thank you for choosing neovim over atom. Have a nice day!"; nvim'
 alias vim='echo "Thank you for choosing neovim over vim. Have a nice day!"; nvim'
