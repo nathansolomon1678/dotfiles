@@ -86,3 +86,6 @@ fi
 
 # make tab autocomplete highlight possible completions
 zstyle ':completion:*' menu select
+
+# cd into a directory without typing cd
+setopt autocd
