@@ -76,3 +76,13 @@ alias praise='git blame'
 alias hack='hollywood'
 alias rick-roll='xdg-open https://www.youtube.com/watch?v=dQw4w9WgXcQ' # to make a great prank, make an alias cd='rick-roll'
 alias cl='clear'
+
+# make up/down arrows go to previous commands that start with the same characters
+if [[ $- == *i* ]]
+then
+  bindkey '^[OA' history-search-backward
+  bindkey '^[OB' history-search-forward
+fi
+
+# make tab autocomplete highlight possible completions
+zstyle ':completion:*' menu select
