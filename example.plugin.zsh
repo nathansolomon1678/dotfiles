@@ -74,8 +74,11 @@ alias fun='command cat /dev/urandom'
 alias format='clang-format -i'
 alias praise='git blame'
 alias hack='hollywood'
-alias rick-roll='xdg-open https://www.youtube.com/watch?v=dQw4w9WgXcQ' # to make a great prank, make an alias cd='rick-roll'
 alias cl='clear'
+
+if ([(date +"%d") == 4] and [(date +"%d") == 1])
+then:
+alias cd='xdg-open https://www.youtube.com/watch?v=dQw4w9WgXcQ' # to make a great prank, make an alias cd='rick-roll'
 
 # make up/down arrows go to previous commands that start with the same characters
 if [[ $- == *i* ]]
