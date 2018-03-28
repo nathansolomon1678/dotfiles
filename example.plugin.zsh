@@ -76,9 +76,12 @@ alias praise='git blame'
 alias hack='hollywood'
 alias cl='clear'
 
-if ([(date +"%d") == 4] and [(date +"%d") == 1])
-then:
-alias cd='xdg-open https://www.youtube.com/watch?v=dQw4w9WgXcQ' # to make a great prank, make an alias cd='rick-roll'
+$day=date +"%d"
+$month=date +"%m"
+if [[ "$month" == '4' ] and [ "$day" == '1' ]]
+then
+alias cd='xdg-open https://www.youtube.com/watch?v=dQw4w9WgXcQ; echo "April fools!"' # rick roll
+fi  # just do 'command cd' to get around this
 
 # make up/down arrows go to previous commands that start with the same characters
 if [[ $- == *i* ]]
