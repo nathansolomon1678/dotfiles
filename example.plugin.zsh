@@ -17,11 +17,8 @@ function robot() {
 
 alias tests='cd ~/robot-code; sh ./robot-code/scripts/tests.sh'
 alias lint='cd ~/robot-code; sh ./robot-code/scripts/cpplint/run-cpplint.sh'
-
-alias atom='echo "Thank you for choosing neovim over atom. Have a nice day!"; nvim'
-alias vim='echo "Thank you for choosing neovim over vim. Have a nice day!"; nvim'
-alias vi='echo "Thank you for choosing neovim over vi. Have a nice day!"; nvim'
-alias v='nvim'
+alias atom='echo "Thank you for choosing vim over atom. Have a nice day!"; vim'
+alias v='vim'
 
 alias ct='lolcat'
 
@@ -36,7 +33,7 @@ google() {
   for term in $@; do
     search="$search%20$term"
   done
-  lynx "http://www.google.com/search?q=$search"
+  xdg-open "http://www.google.com/search?q=$search"
 }
 alias ggl='google'
 alias xkcd='xdg-open https://xkcd.com/' #open up latest xkcd comic
@@ -47,13 +44,13 @@ alias stuff='slack; drive; ghub'
 
 #more git aliases
 alias gist='echo "BRANCHES:\n__________________________________________________" | lolcat;
-            gb -vv;
+            git branch -v;
 
             echo "\n\nREMOTES:\n__________________________________________________" | lolcat;
-            gr -vv;
+            git remote -v;
 
             echo "\n\nSTATUS:\n__________________________________________________" | lolcat;
-            gst;
+            git status;
 
             echo "\n\nFILES & DIRECTORIES:\n__________________________________________________" | lolcat;
             ls'
@@ -66,7 +63,7 @@ function bible() {
     url=$url"_"
   done
   url=${url%?} # remove last underscore
-  lynx "$url"
+  ggl "$url"
 }
 
 #miscellaneous
@@ -75,13 +72,6 @@ alias format='clang-format -i'
 alias praise='git blame'
 alias hack='hollywood'
 alias cl='clear'
-
-$day=date +"%d"
-$month=date +"%m"
-if [[ "$month" == '4' ] and [ "$day" == '1' ]]
-then
-alias cd='xdg-open https://www.youtube.com/watch?v=dQw4w9WgXcQ; echo "April fools!"' # rick roll
-fi  # just do 'command cd' to get around this
 
 # make up/down arrows go to previous commands that start with the same characters
 if [[ $- == *i* ]]
@@ -95,3 +85,17 @@ zstyle ':completion:*' menu select
 
 # cd into a directory without typing cd
 setopt autocd
+
+# git aliases
+alias g='git'
+alias gb='git branch'
+alias gc='git commit'
+alias gco='git checkout'
+alias gd='git diff'
+alias ga='git add'
+alias gr='git remote'
+alias glg='git log'
+alias gl='git pull'
+alias gp='git push'
+alias gf='git fetch'
+alias gst='git status'
