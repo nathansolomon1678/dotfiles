@@ -1,8 +1,7 @@
-# Customize your terminal settings!
-Original zsh aliases and unoriginal vim settings
-
-## How to set up this stuff
-* Install neovim, zsh, and oh-my-zsh
-* In your terminal, enter `cd; git clone https://github.com/nathansolomon1678/dotfiles.git`
-* `cp ~/dotfiles/example.plugin.zsh ~/.oh-my-zsh/custom/plugins/example/`
-* In `~/.zshrc` change the line that says `plugins=(git)` to `plugins=(git example)`
+# Setup instructions:
+Run these commands and also do some other stuff:
+```bash
+ln -s ~/dotfiles/snippets/ ~/.config/nvim/UltiSnips
+echo "source ~/dotfiles/init.vim" > ~/.config/nvim/init.vim
+echo "source ~/dotfiles/bashrc" >> ~/.bashrc
+```
