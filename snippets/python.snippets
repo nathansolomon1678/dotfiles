@@ -7,5 +7,10 @@ import $0
 endsnippet
 
 snippet from "From __ import __ statement" bA
-from $1 import $0
+from ${1:module} import ${0:Class}
+endsnippet
+
+snippet def "Function" bA
+def ${1:function_name}(${2:parameters}):
+    $0
 endsnippet

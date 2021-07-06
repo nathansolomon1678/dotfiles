@@ -1,12 +1,13 @@
 call plug#begin()
 Plug 'gkjgh/cobalt'
 Plug 'SirVer/ultisnips'
+Plug 'lervag/vimtex'
 call plug#end()
 
 colo cobalt
 set termguicolors
 
-let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsEditSplit="context"
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
@@ -24,5 +25,12 @@ command Bashrc execute "vsp ~/dotfiles/bashrc"
 
 " whitespace
 set expandtab
-set                         tabstop=2 | set shiftwidth=2
-autocmd FileType python set tabstop=4 | set shiftwidth=4
+set tabstop=4
+set shiftwidth=4
+
+let g:tex_flavor='latex'
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
+hi clear Conceal
