@@ -2,6 +2,7 @@ call plug#begin()
 Plug 'gkjgh/cobalt'
 Plug 'SirVer/ultisnips'
 Plug 'lervag/vimtex'
+Plug 'chrisbra/unicode.vim'
 call plug#end()
 
 colo cobalt
@@ -34,3 +35,11 @@ let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
 hi clear Conceal
+
+function RefreshLatexPDF()
+    :VimtexStop
+    :VimtexCompile
+    :!rm *.aux *.synctex.gz
+endfunction
+silent !RefreshLatexPDF
+autocmd BufWritePost *.tex silent call RefreshLatexPDF()
