@@ -39,7 +39,7 @@ hi clear Conceal
 function RefreshLatexPDF()
     :VimtexStop
     :VimtexCompile
-    :!rm *.aux *.synctex.gz
+    :call system('rm *.aux *.synctex.gz *.fdb_latexmk *.fls')
 endfunction
 silent !RefreshLatexPDF
 autocmd BufWritePost *.tex silent call RefreshLatexPDF()

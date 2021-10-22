@@ -1,10 +1,31 @@
-snippet beg "Begin" bA
-\documentclass[20pt]{report}
-\usepackage{xcolor}
-\usepackage{extsizes}
+snippet head "Heading" bA
+\documentclass{article}
 \begin{document}
-\pagecolor{black}
-\color{green}
 $0
 \end{document}
 endsnippet
+
+snippet beg "Begin" A
+\begin{$1}$2\end{$1}$0
+endsnippet
+
+snippet frac "Fraction" A
+\frac{$1}{$2}$0
+endsnippet
+
+snippet sqrt "Square root" A
+\sqrt{$1}$0
+endsnippet
+
+snippet { "Curly brackets" A
+{$0}
+endsnippet
+
+snippet [ "Math expression"
+\[$0\]
+endsnippet
+
+snippet $ "Inline math" A
+$$1$$2
+endsnippet
+
