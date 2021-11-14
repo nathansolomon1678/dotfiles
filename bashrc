@@ -35,3 +35,6 @@ alias knotplot="~/knotplot/knotplot"
 # This file was create by installing Modeller from https://salilab.org/modeller/10.1/release.html#unix
 # I then removed the last line (which said `exec "$@"`) from the followinng file:
 source /home/nathan/bin/modeller10.1/bin/modpy.sh
+source $HOME/.cargo/env
+
+export PATH=$PATH:~/yasara
