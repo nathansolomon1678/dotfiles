@@ -12,27 +12,46 @@ $0
 \end{document}
 endsnippet
 
-snippet beg "Begin" A
-\begin{$1}$2\end{$1}$0
+snippet beg "Begin" wA
+\begin{$1}
+	$2
+\end{$1}$0
 endsnippet
 
-snippet frac "Fraction" A
-\frac{$1}{$2}$0
+snippet "[^\ \n]*/" "Fraction" rA
+\frac{`!p snip.rv = match.group(0)[:-1]`}{$1}$0
+endsnippet
+
+snippet aln "Aligned equation(s)" w
+\begin{align*}
+	$1
+\end{align*}
+$0
 endsnippet
 
 snippet sqrt "Square root" A
 \sqrt{$1}$0
 endsnippet
 
-snippet { "Curly brackets" A
-{$0}
-endsnippet
-
 snippet [ "Math expression"
 \[$0\]
 endsnippet
 
-snippet $ "Inline math" A
-$$1$$2
+snippet \lam "Lambda" iA
+\lambda
 endsnippet
 
+snippet -> "Right arrow"
+\rightarrow
+endsnippet
+
+snippet <- "Left arrow"
+\leftarrow
+endsnippet
+
+snippet "[pbBvV]?mat" "Matrix" r
+\begin{`!p snip.rv = match.group(0)`rix}
+	$1
+\end{`!p snip.rv = match.group(0)`rix}
+$0
+endsnippet
