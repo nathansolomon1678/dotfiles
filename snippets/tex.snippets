@@ -18,8 +18,12 @@ snippet beg "Begin" wA
 \end{$1}$0
 endsnippet
 
-snippet "[^\ \n]*/" "Fraction" rA
-\frac{`!p snip.rv = match.group(0)[:-1]`}{$1}$0
+snippet "[^ \t\r\n\v\f]*/" "Fraction" rA
+\frac{`!p snip.rv = match.group(0).rstrip('/')`}{$1}$0
+endsnippet
+
+snippet "\([^\t\r\n\v\f]*\) ?/" "Fraction with parentheses and spaces" rA
+\frac{`!p snip.rv = match.group(0).lstrip('(').rstrip(')').rstrip(' ')`}{$1}$0
 endsnippet
 
 snippet aln "Aligned equation(s)" w
@@ -34,7 +38,9 @@ snippet sqrt "Square root" A
 endsnippet
 
 snippet [ "Math expression"
-\[$0\]
+\[
+	$0
+\]
 endsnippet
 
 snippet \lam "Lambda" iA

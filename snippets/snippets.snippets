@@ -1,6 +1,13 @@
 snippet sn "Snippetception" bA
-snippet $1 "$2"
-$3
-`!p snip.rv = "endsnippet"`
+snippet $1 "$2" $3
+$4
+`!p snip.rv = "endsnippet"`$0
+endsnippet
+
+snippet gl "Global python code" bA
+global !p
+$1
+endglobal
 $0
 endsnippet
+

@@ -3,7 +3,11 @@ Plug 'gkjgh/cobalt'
 Plug 'SirVer/ultisnips'
 Plug 'lervag/vimtex'
 Plug 'chrisbra/unicode.vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
+
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#source('_', 'max_menu_width', 80)
 
 colo cobalt
 set termguicolors

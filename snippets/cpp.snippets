@@ -1,4 +1,8 @@
-snippet #in "Include"
+global !p
+endglobal
+
+
+snippet in "Include" b
 #include $0
 endsnippet
 
@@ -6,3 +10,55 @@ snippet co "Constant" w
 const $0
 endsnippet
 
+snippet main "Main function" b
+int main() {
+	$0
+	return 0;
+}
+endsnippet
+
+snippet cout "std::cout" w
+std::cout << $0;
+endsnippet
+
+snippet cin "std::cin" w
+std::cin >> $0;
+endsnippet
+
+snippet str "std::string" w
+std::string $0
+endsnippet
+
+snippet vec "std::vector" w
+std::vector<$1> $0
+endsnippet
+
+context "'array' not in snip.buffer[snip.line]"
+snippet { "Close curly brace" ebA
+{
+	$1
+}$0
+endsnippet
+
+snippet for "For loop" b
+for (${1:Initialization}; ${2:Condition}; ${3:Update}) {
+	$4
+}
+$0
+endsnippet
+
+snippet for: "For-each loop" bA
+	for (${1:Element} : ${2:Range}) {
+		$3
+	}
+	$0
+endsnippet
+
+snippet ifn "Header guards" b
+#ifndef $1
+#define $1
+
+$0
+
+#endif  // $1
+endsnippet

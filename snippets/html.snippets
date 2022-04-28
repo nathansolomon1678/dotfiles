@@ -1,0 +1,20 @@
+snippet "<[a-z]+( [a-z]+=([0-9\.]+|\"[^\"]+"))*" "Tag with attributes" br
+`!p snip.rv = match.group(0)`> $1 </`!p snip.rv = match.group(0).split()[0].lstrip('<')`>$0
+endsnippet
+
+snippet head "Basic header and stuff for an HTML file" bA
+<!Doctype HTML>
+<html>
+	<head>
+		<link rel="stylesheet" href="$1.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8"/>
+		<meta name="author" content="Nathan Solomon">
+		<title>$2</title>
+	</head>
+	<body>
+		$0
+	</body>
+</html>
+endsnippet
+

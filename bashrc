@@ -1,6 +1,7 @@
 alias g="git"
 alias p="python3"
 alias v="nvim"
+alias x="xdg-open"
 
 shopt -s autocd
 
@@ -38,3 +39,6 @@ source /home/nathan/bin/modeller10.1/bin/modpy.sh
 source $HOME/.cargo/env
 
 export PATH=$PATH:~/yasara
+export PATH=$PATH:~/bin/OpenBCI_GUI
+
+PYTHONPATH="${PYTHONPATH}:PYLSL_LIB"
