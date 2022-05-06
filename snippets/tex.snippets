@@ -1,10 +1,17 @@
 snippet head "Heading" bA
-\documentclass[14pt]{article}
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
 \usepackage{amsmath}
-\usepackage{extsizes}
+\usepackage{amsfonts}
+
+\usepackage{xcolor}
+\definecolor{beige}{rgb}{.9, .9, .8}
+\pagecolor{beige}
+
 \begin{document}
 
 \title{$1}
+\author{Nathan Solomon}
 \maketitle
 
 $0
@@ -16,6 +23,21 @@ snippet beg "Begin" wA
 \begin{$1}
 	$2
 \end{$1}$0
+endsnippet
+
+snippet s "Section header" b
+\section{$1}
+$0
+endsnippet
+
+snippet ss "Section header" b
+\subsection{$1}
+$0
+endsnippet
+
+snippet sss "Section header" b
+\subsubsection{$1}
+$0
 endsnippet
 
 snippet "[^ \t\r\n\v\f]*/" "Fraction" rA
