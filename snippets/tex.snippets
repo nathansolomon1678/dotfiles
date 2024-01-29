@@ -34,7 +34,7 @@ snippet beg "Begin and end context" wA
 endsnippet
 
 snippet "s+" "Section header" br
-`!p snip.rv="sub"*(len(match.group(0))-1)`section{$1}
+\\`!p snip.rv="sub"*(len(match.group(0))-1)`section{$1}
 $0
 endsnippet
 
@@ -82,7 +82,7 @@ snippet tikzcd "Tikz commutative diagram" b
 $0
 endsnippet
 
-snippet "[^\s]+/" "Fraction" r
+snippet "[^\s\$]+/" "Fraction" r
 \frac{`!p snip.rv=match.group(0)[:-1]`}{$1}$0
 endsnippet
 
@@ -90,7 +90,7 @@ snippet bb "Blackboard bold" i
 \mathbb{$1}$0
 endsnippet
 
-snippet "[NZQRCHF]" "Common sets and fields" r
+snippet "[NZQRCHF]" "Common sets and fields" ir
 \mathbb{`!p snip.rv=match.group(0)`}$0
 endsnippet
 
@@ -122,4 +122,8 @@ endsnippet
 
 snippet \ "Backslash"
 \backslash
+endsnippet
+
+snippet bs "Bigskip" i
+\bigskip\par
 endsnippet
