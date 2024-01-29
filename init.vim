@@ -32,6 +32,10 @@ command Bashrc execute "vsp ~/dotfiles/bashrc"
 set expandtab
 set tabstop=4
 set shiftwidth=4
+"autocmd FileType cpp set tabstop=2 | set shiftwidth=2
+"autocmd FileType c   set tabstop=2 | set shiftwidth=2
+"autocmd FileType cc  set tabstop=2 | set shiftwidth=2
+"autocmd FileType h   set tabstop=2 | set shiftwidth=2
 
 let g:tex_flavor='latex'
 let g:vimtex_view_method = 'zathura'

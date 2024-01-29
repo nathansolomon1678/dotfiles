@@ -2,11 +2,14 @@ snippet head "Heading" bA
 \documentclass[12pt]{article}
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{amsfonts}
-
-\usepackage{xcolor}
-\definecolor{beige}{rgb}{.9, .9, .8}
-\pagecolor{beige}
+\usepackage{amsthm}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\usepackage{tikz-cd}
+\renewcommand{\d}{\mathrm{d}}
 
 \begin{document}
 
@@ -19,54 +22,35 @@ $0
 \end{document}
 endsnippet
 
-snippet beg "Begin" wA
+snippet use "Use package" b
+\usepackage{$1}
+$0
+endsnippet
+
+snippet beg "Begin and end context" wA
 \begin{$1}
 	$2
 \end{$1}$0
 endsnippet
 
-snippet s "Section header" b
-\section{$1}
+snippet "s+" "Section header" br
+`!p snip.rv="sub"*(len(match.group(0))-1)`section{$1}
 $0
 endsnippet
 
-snippet ss "Section header" b
-\subsection{$1}
-$0
-endsnippet
-
-snippet sss "Section header" b
-\subsubsection{$1}
-$0
-endsnippet
-
-snippet "[^ \t\r\n\v\f]*/" "Fraction" rA
-\frac{`!p snip.rv = match.group(0).rstrip('/')`}{$1}$0
-endsnippet
-
-snippet "\([^\t\r\n\v\f]*\) ?/" "Fraction with parentheses and spaces" rA
-\frac{`!p snip.rv = match.group(0).lstrip('(').rstrip(')').rstrip(' ')`}{$1}$0
-endsnippet
-
-snippet aln "Aligned equation(s)" w
-\begin{align*}
-	$1
-\end{align*}
-$0
-endsnippet
-
-snippet sqrt "Square root" A
+snippet sqrt "Square root" iA
 \sqrt{$1}$0
 endsnippet
 
-snippet [ "Math expression"
-\[
-	$0
-\]
+snippet fig "Figure" b
+\begin{center}
+    \includegraphics[width=\textwidth]{$1}
+\end{center}
+$0
 endsnippet
 
-snippet \lam "Lambda" iA
-\lambda
+snippet [ "Math expression"
+\[ $1 \]$0
 endsnippet
 
 snippet -> "Right arrow"
@@ -82,4 +66,60 @@ snippet "[pbBvV]?mat" "Matrix" r
 	$1
 \end{`!p snip.rv = match.group(0)`rix}
 $0
+endsnippet
+
+snippet box "Nicely formatted textbox" b
+\noindent\fbox{\fbox{\parbox{6.5in}{
+	$1
+}}}\bigskip\par
+$0
+endsnippet
+
+snippet tikzcd "Tikz commutative diagram" b
+\[\begin{tikzcd}[row sep = huge, column sep = huge]
+	$1
+\end{tikzcd}\]
+$0
+endsnippet
+
+snippet "[^\s]+/" "Fraction" r
+\frac{`!p snip.rv=match.group(0)[:-1]`}{$1}$0
+endsnippet
+
+snippet bb "Blackboard bold" i
+\mathbb{$1}$0
+endsnippet
+
+snippet "[NZQRCHF]" "Common sets and fields" r
+\mathbb{`!p snip.rv=match.group(0)`}$0
+endsnippet
+
+snippet ( "Parentheses" i
+\left( $1 \right) $0
+endsnippet
+
+snippet { "Curly braces" i
+\left\{ \right\}
+endsnippet
+
+snippet o "Operator" i
+\operatorname{$1}$0
+endsnippet
+
+snippet lem "Lemma and proof"
+\begin{lem}\label{$1}
+	$2
+\end{lem}
+\begin{proof}
+	$3
+\end{proof}
+$0
+endsnippet
+
+snippet Z/ "Integers modulo n" i
+\mathbb{Z}/$1\mathbb{Z}$0
+endsnippet
+
+snippet \ "Backslash"
+\backslash
 endsnippet
