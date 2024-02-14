@@ -8,6 +8,7 @@ snippet head "Heading" bA
 \newtheorem{thm}{Theorem}[section]
 \newtheorem{cor}[thm]{Corollary}
 \newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
 \usepackage{tikz-cd}
 \renewcommand{\d}{\mathrm{d}}
 
@@ -53,11 +54,11 @@ snippet [ "Math expression"
 \[ $1 \]$0
 endsnippet
 
-snippet -> "Right arrow"
+snippet -> "Right arrow" i
 \rightarrow
 endsnippet
 
-snippet <- "Left arrow"
+snippet <- "Left arrow" i
 \leftarrow
 endsnippet
 
@@ -98,26 +99,22 @@ snippet ( "Parentheses" i
 \left( $1 \right) $0
 endsnippet
 
-snippet { "Curly braces" i
-\left\{ \right\}
+snippet { "Curly braces"
+\left\\{ $1 \right\\}$0
 endsnippet
 
-snippet o "Operator" i
+snippet "[^a-zA-Z]+o" "Operator" ir
 \operatorname{$1}$0
 endsnippet
 
-snippet lem "Lemma and proof"
-\begin{lem}\label{$1}
+snippet "(thm)|(cor)|(lem)|(prop)" "Lemma and proof" r
+\begin{`!p snip.rv=match.group(0)`}\label{$1}
 	$2
-\end{lem}
+\end{`!p snip.rv=match.group(0)`}
 \begin{proof}
 	$3
 \end{proof}
 $0
-endsnippet
-
-snippet Z/ "Integers modulo n" i
-\mathbb{Z}/$1\mathbb{Z}$0
 endsnippet
 
 snippet \ "Backslash"
@@ -126,4 +123,12 @@ endsnippet
 
 snippet bs "Bigskip" i
 \bigskip\par
+endsnippet
+
+snippet ti "Italics"
+\textit{$1}$0
+endsnippet
+
+snippet tb "Bold"
+\textbf{$1}$0
 endsnippet
