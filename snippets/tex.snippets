@@ -28,7 +28,7 @@ snippet use "Use package" b
 $0
 endsnippet
 
-snippet beg "Begin and end context" wA
+snippet beg "Begin and end context" w
 \begin{$1}
 	$2
 \end{$1}$0
@@ -41,17 +41,6 @@ endsnippet
 
 snippet sqrt "Square root" iA
 \sqrt{$1}$0
-endsnippet
-
-snippet fig "Figure" b
-\begin{center}
-    \includegraphics[width=\textwidth]{$1}
-\end{center}
-$0
-endsnippet
-
-snippet [ "Math expression"
-\[ $1 \]$0
 endsnippet
 
 snippet -> "Right arrow" i
@@ -77,22 +66,16 @@ $0
 endsnippet
 
 snippet tikzcd "Tikz commutative diagram" b
+\begin{center}
 \[\begin{tikzcd}[row sep = huge, column sep = huge]
 	$1
 \end{tikzcd}\]
+\end{center}
 $0
 endsnippet
 
 snippet "[^\s\$]+/" "Fraction" r
 \frac{`!p snip.rv=match.group(0)[:-1]`}{$1}$0
-endsnippet
-
-snippet bb "Blackboard bold" i
-\mathbb{$1}$0
-endsnippet
-
-snippet "[NZQRCHF]" "Common sets and fields" ir
-\mathbb{`!p snip.rv=match.group(0)`}$0
 endsnippet
 
 snippet ( "Parentheses" i
@@ -103,17 +86,12 @@ snippet { "Curly braces"
 \left\\{ $1 \right\\}$0
 endsnippet
 
-snippet "[^a-zA-Z]+o" "Operator" ir
-\operatorname{$1}$0
+snippet [ "Square brackets"
+\left[ $1 \right]$0
 endsnippet
 
-snippet "(thm)|(cor)|(lem)|(prop)" "Lemma and proof" r
-\begin{`!p snip.rv=match.group(0)`}\label{$1}
-	$2
-\end{`!p snip.rv=match.group(0)`}
-\begin{proof}
-	$3
-\end{proof}
+snippet \[ "Equation" bA
+\[ $1 \]
 $0
 endsnippet
 
@@ -131,4 +109,24 @@ endsnippet
 
 snippet tb "Bold"
 \textbf{$1}$0
+endsnippet
+
+snippet tt "Typewriter"
+\texttt{$1}$0
+endsnippet
+
+snippet bk "Bra-ket"
+\braket{$1}{$2} $0
+endsnippet
+
+snippet exact "Exact sequence" b
+\begin{center}
+\[\begin{tikzcd}[row sep = huge, column sep = huge]
+    0 \arrow[hookrightarrow{r} & $1 \arrow[hookrightarrow, "$2"]{r} & $3 \arrow[twoheadrightarrow, "$4"]{r} & $5 \arrow[twoheadrightarrow]{r} & 0
+\end{tikzcd}\]
+\end{center}
+endsnippet
+
+snippet "([\$\s^]+)(gl|so|sl|sp|su|o|u)" "Lie algebra" r
+`!p snip.rv=match.group(1)+"\mathfrak{"+match.group(2)`}($1)$0
 endsnippet
